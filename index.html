@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phòng Tranh 🎨 | CLB Văn Hay Chữ Tốt - THPT Huỳnh Văn Nghệ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5B8DEF;        --sky-soft:#E3EEFF;
+  --rose:#EF5F86;       --rose-soft:#FFE3EC;
+  --gold:#F2A93B;       --gold-soft:#FFF1D2;
+  --leaf:#4FAE7B;       --leaf-soft:#DFF4E9;
+  --violet:#8E6CF0;     --violet-soft:#ECE6FF;
+  --wood:#B97B4B;       --wood-soft:#F3E3D2;
+  --ink:#233156;        --ink-soft:#8891AC; --ink-mid:#5A6688;
+  --cream:#FBF8F2;      --card:#FFFFFF;    --line:#ECE6DA;
+  --shadow: 0 10px 30px -12px rgba(35,49,86,.16);
+  --radius: 20px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:'Mulish', sans-serif; color:var(--ink);
+  background:
+    radial-gradient(1100px 500px at 12% -10%, #EAF2FF 0%, transparent 55%),
+    radial-gradient(900px 500px at 105% 8%, #FFE9F1 0%, transparent 55%),
+    var(--cream);
+  min-height:100vh; position:relative; overflow-x:hidden;
+}
+h1,h2,h3,h4,.display{ font-family:'Be Vietnam Pro', sans-serif; }
+img{ max-width:100%; display:block; }
+button{ font-family:'Mulish',sans-serif; }
+::selection{ background:var(--rose-soft); }
+
+/* ---------- floating decoration ---------- */
+.bg-blob{position:fixed; border-radius:50%; filter:blur(60px); opacity:.5; z-index:0; pointer-events:none; animation:blobfloat 22s ease-in-out infinite;}
+.blob-1{width:420px;height:420px; top:-140px; left:-140px; background:radial-gradient(circle,var(--sky-soft),transparent 70%);}
+.blob-2{width:380px;height:380px; top:10%; right:-160px; background:radial-gradient(circle,var(--rose-soft),transparent 70%); animation-delay:-7s;}
+.blob-3{width:340px;height:340px; bottom:-120px; left:35%; background:radial-gradient(circle,var(--gold-soft),transparent 70%); animation-delay:-14s;}
+@keyframes blobfloat{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(24px,-18px) scale(1.06);} }
+.petal{ position:fixed; z-index:0; pointer-events:none; font-size:16px; opacity:.55; animation:fall linear infinite; }
+@keyframes fall{ 0%{ transform:translateY(-40px) rotate(0deg);} 100%{ transform:translateY(105vh) rotate(360deg);} }
+
+.wrap{max-width:1360px; margin:0 auto; padding:0 20px; position:relative; z-index:1;}
+.reveal{ opacity:0; transform:translateY(20px); transition:opacity .55s ease, transform .55s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* ================= TOP BAR ================= */
+.topbar{ position:sticky; top:0; z-index:50; background:rgba(251,248,242,.9); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.topbar-inner{ max-width:1360px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:18px; }
+.brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.08rem; flex:none; }
+.brand-badge{ width:38px;height:38px;border-radius:12px; display:grid; place-items:center; font-size:1.15rem; background:linear-gradient(135deg,var(--rose),var(--violet)); color:#fff; box-shadow:var(--shadow);}
+.topnav{ display:flex; gap:4px; flex:1; overflow-x:auto; scrollbar-width:none; }
+.topnav::-webkit-scrollbar{ display:none; }
+.topnav button{ border:none; background:none; padding:9px 13px; border-radius:12px; font-weight:700; font-size:.82rem; color:var(--ink-mid); cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:6px; transition:.15s;}
+.topnav button:hover{ background:#F1ECE0; color:var(--ink); }
+.topnav button.active{ background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; }
+.search-box{ display:flex; align-items:center; gap:8px; background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:8px 14px; flex:none; width:230px;}
+.search-box input{ border:none; outline:none; font-size:.84rem; width:100%; font-family:'Mulish',sans-serif; background:transparent; color:var(--ink);}
+.icon-btn{ width:40px;height:40px; border-radius:12px; border:1px solid var(--line); background:#fff; display:grid; place-items:center; cursor:pointer; font-size:1.05rem; transition:.2s; flex:none;}
+.icon-btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow); }
+
+/* ================= HERO BANNER ================= */
+.hero-banner{
+  position:relative; margin:18px auto 0; max-width:1360px; border-radius:26px; overflow:hidden;
+  background:linear-gradient(120deg,#DCEBFF 0%, #EAF6FF 35%, #FFEAF1 70%, #FFF3DD 100%);
+  padding:26px 30px; display:grid; grid-template-columns:1fr 1.6fr 1fr; gap:18px; align-items:center;
+  border:1px solid #fff;
+}
+.hero-emblem{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.emblem-badge{ width:76px;height:76px; border-radius:50%; background:radial-gradient(circle,#fff,#EAF2FF); border:3px solid var(--sky); display:grid; place-items:center; text-align:center; font-size:.56rem; font-weight:800; color:var(--sky); line-height:1.3; box-shadow:var(--shadow); }
+.emblem-quote{ background:#fff; border:1px dashed var(--wood); border-radius:14px; padding:10px 12px; font-size:.72rem; font-weight:700; color:var(--wood); line-height:1.5; font-style:italic; }
+.hero-center{ text-align:center; position:relative; }
+.hero-bubble{ display:inline-block; background:#fff; border-radius:16px; padding:7px 14px; font-size:.76rem; font-weight:700; color:var(--rose); box-shadow:var(--shadow); margin-bottom:8px; position:relative; }
+.hero-title{ font-size:clamp(1.8rem,4vw,2.7rem); font-weight:800; margin:0; letter-spacing:-.5px; line-height:1.15;}
+.hero-title span{ background:linear-gradient(100deg,var(--violet),var(--rose) 55%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-ribbon{ display:inline-block; margin-top:8px; background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; font-weight:800; font-size:.86rem; padding:7px 20px; border-radius:999px; }
+.hero-sub-pill{ display:inline-block; margin-top:8px; margin-left:8px; background:#fff; color:var(--ink-mid); font-weight:700; font-size:.74rem; padding:5px 14px; border-radius:999px; border:1px solid var(--line); }
+.hero-tagline{ margin-top:10px; font-size:.88rem; font-style:italic; color:var(--ink-mid); }
+.hero-right{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.book-quote{ background:#fff9ef; border:1px solid var(--wood-soft); border-radius:16px; padding:12px 16px; font-size:.74rem; color:var(--wood); font-weight:700; line-height:1.6; text-align:right; box-shadow:var(--shadow); }
+.sign-list{ display:flex; flex-direction:column; gap:5px; align-items:flex-end; }
+.sign{ background:linear-gradient(120deg,var(--wood),#8C5A34); color:#fff; font-size:.72rem; font-weight:700; padding:5px 14px; border-radius:8px 3px 8px 3px; box-shadow:0 3px 8px rgba(0,0,0,.15); }
+.hero-decor{ position:absolute; font-size:20px; opacity:.7; pointer-events:none; }
+
+/* ================= APP SHELL ================= */
+.app-shell{ display:grid; grid-template-columns:220px 1fr 340px; gap:20px; padding:24px 0 60px; align-items:start; }
+.app-shell.no-advisor{ grid-template-columns:220px 1fr; }
+@media (max-width:1180px){ .app-shell{ grid-template-columns:70px 1fr 320px; } .side-label{ display:none; } }
+@media (max-width:900px){ .app-shell{ grid-template-columns:1fr; } .sidebar{ display:flex; overflow-x:auto; gap:8px; } .sidebar .side-item{ flex:none; } }
+
+/* sidebar */
+.sidebar{ position:sticky; top:76px; display:flex; flex-direction:column; gap:3px; }
+.side-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; border:none; background:none; cursor:pointer; font-weight:700; font-size:.82rem; color:var(--ink-mid); text-align:left; }
+.side-item:hover{ background:#F1ECE0; color:var(--ink); }
+.side-item.active{ background:linear-gradient(120deg,var(--sky-soft),var(--rose-soft)); color:var(--ink); }
+.side-item .ic{ width:22px; text-align:center; flex:none; }
+.sidebar-deco{ margin-top:16px; background:linear-gradient(160deg,#fff,var(--rose-soft)); border-radius:18px; padding:16px; text-align:center; font-size:.72rem; color:var(--wood); font-weight:700; line-height:1.8; border:1px solid var(--line); }
+
+/* main content */
+.view{ display:none; }
+.view.active{ display:block; }
+.section-title{ display:flex; align-items:center; gap:10px; font-size:1.2rem; font-weight:800; margin:6px 0 18px; }
+.section-title .fl{ font-size:1.3rem; }
+
+/* room grid */
+.room-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+@media (max-width:1180px){ .room-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:640px){ .room-grid{ grid-template-columns:repeat(2,1fr); } }
+.room-card{ background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:var(--shadow); transition:.25s; display:flex; flex-direction:column; }
+.room-card:hover{ transform:translateY(-4px); }
+.room-badge{ font-size:.68rem; font-weight:800; color:#fff; padding:5px 12px; border-radius:999px; display:inline-block; margin:10px 0 0 10px; width:fit-content; }
+.room-illust{ height:96px; margin:8px 10px 0; border-radius:12px; display:grid; place-items:center; font-size:2.1rem; }
+.room-body{ padding:10px 12px 12px; flex:1; display:flex; flex-direction:column; }
+.room-title{ font-weight:800; font-size:.86rem; line-height:1.3; min-height:34px; }
+.room-count{ font-size:.72rem; color:var(--ink-mid); margin:6px 0 10px; }
+.room-btn{ margin-top:auto; border:none; border-radius:10px; padding:9px; font-weight:700; font-size:.76rem; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;}
+
+/* latest works row */
+.works-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+@media (max-width:1180px){ .works-row{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:640px){ .works-row{ grid-template-columns:repeat(2,1fr); } }
+.work-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); transition:.2s; cursor:pointer; }
+.work-card:hover{ transform:translateY(-3px); }
+.work-thumb{ width:100%; height:130px; object-fit:cover; background:#EEE; }
+.work-body{ padding:10px 12px; }
+.work-title{ font-weight:800; font-size:.82rem; margin-bottom:3px; line-height:1.3; }
+.work-author{ font-size:.72rem; color:var(--ink-mid); margin-bottom:8px; }
+.work-stats{ display:flex; gap:14px; font-size:.76rem; color:var(--ink-mid); font-weight:700; }
+.work-stats button{ background:none; border:none; cursor:pointer; font-size:.76rem; color:var(--ink-mid); font-weight:700; display:flex; align-items:center; gap:4px; padding:0;}
+.work-stats button.liked{ color:var(--rose); }
+.work-stats button:hover{ color:var(--rose); }
+
+/* room detail gallery */
+.room-detail-head{ display:flex; align-items:center; gap:14px; margin-bottom:18px; flex-wrap:wrap; }
+.room-detail-head .rd-illust{ width:64px;height:64px;border-radius:16px; display:grid; place-items:center; font-size:1.8rem; }
+.gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .gallery-grid{ grid-template-columns:1fr; } }
+.empty-room{ text-align:center; padding:60px 20px; color:var(--ink-soft); }
+.empty-room .em{ font-size:2.6rem; margin-bottom:10px; }
+
+/* work modal */
+.overlay{ position:fixed; inset:0; background:rgba(35,49,86,.5); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; z-index:200; padding:18px;}
+.overlay.show{ display:flex; }
+.modal{ background:#fff; border-radius:24px; max-width:560px; width:100%; max-height:88vh; overflow-y:auto; padding:0; box-shadow:0 30px 60px rgba(0,0,0,.25); animation:fadeUp .3s ease;}
+@keyframes fadeUp{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+.modal.wide{ max-width:640px; }
+.modal-simple{ padding:26px; }
+.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--line);}
+.modal-head h3{ margin:0; font-size:1.05rem; }
+.modal-head button{ background:#F4F1EA; border:none; width:32px;height:32px; border-radius:10px; cursor:pointer; }
+.modal-img{ width:100%; max-height:360px; object-fit:contain; background:#F4F1EA; }
+.modal-body{ padding:18px 22px; }
+.modal-meta{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; gap:8px;}
+.modal-meta h4{ margin:0 0 3px; font-size:1.02rem; }
+.modal-meta .ma{ font-size:.8rem; color:var(--ink-mid); }
+.modal-tag{ background:var(--sky-soft); color:var(--sky); font-size:.7rem; font-weight:800; padding:4px 10px; border-radius:999px; flex:none; }
+.modal-caption{ font-size:.86rem; color:var(--ink); line-height:1.7; margin:10px 0 16px; white-space:pre-wrap; }
+.modal-actions{ display:flex; gap:10px; margin-bottom:16px; }
+.comment-list{ display:flex; flex-direction:column; gap:10px; max-height:200px; overflow-y:auto; margin-bottom:12px; }
+.comment-item{ background:#F8F6F0; border-radius:12px; padding:8px 12px; font-size:.82rem; }
+.comment-item b{ font-size:.78rem; }
+.comment-item .ct{ color:#AEB4C7; font-size:.68rem; margin-left:6px; }
+.comment-form{ display:flex; gap:8px; }
+.comment-form input{ flex:1; border:1.5px solid var(--line); border-radius:12px; padding:9px 12px; font-size:.84rem; font-family:'Mulish',sans-serif;}
+.comment-form button{ border:none; background:var(--sky); color:#fff; border-radius:12px; padding:0 16px; font-weight:700; cursor:pointer; }
+
+/* buttons */
+.btn{ border:none; border-radius:13px; padding:12px 18px; font-weight:700; font-size:.86rem; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:.2s;}
+.btn:active{ transform:scale(.97); }
+.btn-primary{ background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; box-shadow:0 10px 20px -8px rgba(142,108,240,.5);}
+.btn-ghost{ background:#fff; color:var(--ink); border:1.5px solid var(--line); }
+.btn-ghost:hover{ border-color:var(--sky); color:var(--sky); }
+.btn-block{ width:100%; justify-content:center; }
+.btn-sm{ padding:8px 14px; font-size:.78rem; }
+
+/* upload form */
+.form-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px; max-width:640px; }
+.field{ margin-bottom:16px; }
+.field label{ display:block; font-weight:700; font-size:.84rem; margin-bottom:6px; }
+.field input[type=text], .field select, .field textarea{
+  width:100%; border:1.5px solid var(--line); border-radius:12px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:.88rem; color:var(--ink); background:#fff;
+}
+.field textarea{ min-height:80px; resize:vertical; }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.dropzone{ border:2px dashed var(--line); border-radius:16px; padding:26px; text-align:center; cursor:pointer; transition:.2s; background:#FBFAF6;}
+.dropzone:hover{ border-color:var(--sky); background:var(--sky-soft); }
+.dropzone .dz-icon{ font-size:2rem; margin-bottom:6px; }
+.dropzone .dz-text{ font-size:.84rem; color:var(--ink-mid); font-weight:700; }
+.preview-img{ max-width:100%; max-height:260px; border-radius:14px; margin-top:12px; }
+
+/* leaderboard */
+.lb-list{ display:flex; flex-direction:column; gap:10px; }
+.lb-item{ display:flex; align-items:center; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:12px 16px; box-shadow:var(--shadow); }
+.lb-rank{ width:34px;height:34px;border-radius:50%; display:grid; place-items:center; font-weight:800; font-size:.9rem; background:var(--sky-soft); color:var(--sky); flex:none;}
+.lb-item:nth-child(1) .lb-rank{ background:linear-gradient(135deg,#FFD873,#F2A93B); color:#fff; }
+.lb-item:nth-child(2) .lb-rank{ background:linear-gradient(135deg,#D8DEEB,#AEB4C7); color:#fff; }
+.lb-item:nth-child(3) .lb-rank{ background:linear-gradient(135deg,#E2B08A,#B97B4B); color:#fff; }
+.lb-name{ font-weight:800; font-size:.9rem; }
+.lb-sub{ font-size:.75rem; color:var(--ink-mid); }
+.lb-score{ margin-left:auto; font-weight:800; color:var(--rose); font-size:.95rem; }
+
+/* ideas */
+.idea-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+@media (max-width:700px){ .idea-grid{ grid-template-columns:1fr; } }
+.idea-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:var(--shadow); }
+.idea-card h4{ margin:0 0 8px; font-size:.92rem; }
+.idea-card ul{ margin:0; padding-left:18px; font-size:.82rem; color:var(--ink-mid); line-height:1.8; }
+
+/* guide */
+.guide-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px; box-shadow:var(--shadow); margin-bottom:12px; }
+.guide-card h4{ margin:0 0 6px; font-size:.94rem; display:flex; gap:8px; align-items:center; }
+.guide-card p{ margin:0; font-size:.84rem; color:var(--ink-mid); line-height:1.7; }
+
+/* settings */
+.settings-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px; box-shadow:var(--shadow); margin-bottom:16px; max-width:560px; }
+.settings-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.switch{ position:relative; width:46px;height:26px; flex:none;}
+.switch input{ opacity:0; width:0;height:0; }
+.slider{ position:absolute; inset:0; background:#DDD6C6; border-radius:999px; cursor:pointer; transition:.2s;}
+.slider:before{ content:""; position:absolute; width:20px;height:20px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+input:checked + .slider{ background:linear-gradient(120deg,var(--rose),var(--violet)); }
+input:checked + .slider:before{ transform:translateX(20px); }
+
+/* ================= ADVISOR PANEL ================= */
+.advisor-panel{ background:linear-gradient(165deg,#FFF0F5,#FFF); border:1px solid #FFD9E6; border-radius:22px; padding:20px; position:sticky; top:76px; box-shadow:var(--shadow); }
+.advisor-head{ text-align:center; margin-bottom:14px; }
+.advisor-head .ai-avatar{ width:52px;height:52px;border-radius:50%; margin:0 auto 8px; background:linear-gradient(135deg,var(--violet),var(--rose)); display:grid; place-items:center; font-size:1.5rem; color:#fff; box-shadow:0 10px 20px -6px rgba(142,108,240,.5); }
+.advisor-head h3{ margin:0; font-size:1rem; }
+.advisor-head p{ margin:4px 0 0; font-size:.74rem; color:var(--ink-mid); }
+.advisor-tabs{ display:flex; gap:6px; background:#fff; border-radius:12px; padding:4px; margin-bottom:14px; border:1px solid var(--line); }
+.advisor-tabs button{ flex:1; border:none; background:none; padding:8px 4px; border-radius:9px; font-size:.72rem; font-weight:700; color:var(--ink-mid); cursor:pointer; }
+.advisor-tabs button.active{ background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; }
+.advisor-tabpane{ display:none; }
+.advisor-tabpane.active{ display:block; }
+
+.chat-body{ max-height:280px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; margin-bottom:12px; padding-right:2px; }
+.msg{ max-width:92%; padding:9px 12px; border-radius:14px; font-size:.8rem; line-height:1.55; white-space:pre-wrap; }
+.msg.bot{ align-self:flex-start; background:#fff; border:1px solid #F0E4EE; color:var(--ink); }
+.msg.user{ align-self:flex-end; background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; }
+.msg ul{ margin:4px 0 0; padding-left:16px; }
+
+.api-box{ background:#fff; border:1px solid #F0DCE6; border-radius:14px; padding:14px; margin-bottom:12px; }
+.api-box .ab-title{ font-size:.76rem; font-weight:800; color:var(--rose); display:flex; align-items:center; gap:6px; margin-bottom:10px; }
+.key-row{ position:relative; margin-bottom:8px;}
+.key-row input{ width:100%; padding:9px 36px 9px 12px; border-radius:10px; border:1.5px solid var(--line); font-size:.78rem; font-family:monospace;}
+.key-row button{ position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:.9rem;}
+.help-link{ font-size:.72rem; color:var(--sky); font-weight:700; cursor:pointer; text-decoration:underline; }
+select.mini{ width:100%; padding:9px 10px; border-radius:10px; border:1.5px solid var(--line); font-size:.78rem; margin:8px 0; background:#fff; font-family:'Mulish',sans-serif;}
+.api-btn-row{ display:flex; gap:6px; margin-top:6px; }
+.api-btn-row button{ flex:1; font-size:.72rem; padding:8px 6px; }
+.status-line{ display:flex; align-items:center; gap:6px; font-size:.72rem; color:var(--ink-mid); margin-top:8px;}
+.dot{ width:7px;height:7px;border-radius:50%; background:#D9D2C2;}
+.dot.on{ background:#3FBF7F; }
+.dot.err{ background:#EF5F86; }
+
+.chat-input-row{ display:flex; gap:7px; }
+.chat-input-row input{ flex:1; border:1.5px solid var(--line); border-radius:12px; padding:9px 12px; font-size:.8rem; font-family:'Mulish',sans-serif;}
+.chat-input-row button{ width:38px;height:38px;border-radius:11px; border:none; background:linear-gradient(120deg,var(--rose),var(--violet)); color:#fff; cursor:pointer; flex:none; font-size:.95rem;}
+.quick-chips{ display:flex; gap:5px; flex-wrap:wrap; margin:10px 0; }
+.quick-chips button{ background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 11px; font-size:.7rem; font-weight:700; color:var(--ink-mid); cursor:pointer; }
+.quick-chips button:hover{ background:var(--sky-soft); color:var(--sky); }
+
+.theme-suggest select{ margin-bottom:10px; }
+.idea-result{ background:#fff; border:1px solid #F0E4EE; border-radius:14px; padding:12px; font-size:.8rem; line-height:1.7; white-space:pre-wrap; min-height:60px; color:var(--ink); }
+
+/* toast + confetti */
+.toast{ position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:#fff; padding:12px 22px; border-radius:14px; font-size:.86rem; font-weight:600; box-shadow:var(--shadow); z-index:300; opacity:0; pointer-events:none; transition:.3s;}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+#confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:250; }
+.heart-burst{ position:fixed; font-size:22px; pointer-events:none; z-index:260; animation:heartrise 1s ease-out forwards; }
+@keyframes heartrise{ 0%{ transform:translateY(0) scale(.6); opacity:1;} 100%{ transform:translateY(-70px) scale(1.3); opacity:0;} }
+
+/* dark mode */
+body.dark{
+  --ink:#EDEFF7; --ink-soft:#9AA3C4; --ink-mid:#B7BEDA;
+  --cream:#141928; --card:#1E2438; --line:#2C3554;
+  --sky-soft:#233252; --rose-soft:#3A2431; --gold-soft:#3A3021; --leaf-soft:#22362B; --violet-soft:#2B2748; --wood-soft:#3A2E22;
+  background: radial-gradient(1100px 500px at 12% -10%, #1B2440 0%, transparent 55%), radial-gradient(900px 500px at 105% 8%, #2A1F30 0%, transparent 55%), var(--cream);
+}
+body.dark .topbar{ background:rgba(20,25,40,.9); }
+body.dark .topnav button:hover{ background:#232A42; }
+body.dark .search-box, body.dark .icon-btn{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .hero-banner{ background:linear-gradient(120deg,#1B2440,#241F3D,#2E2030,#2A2418); border-color:#333D5F; }
+body.dark .emblem-badge{ background:radial-gradient(circle,#232A42,#1E2438); }
+body.dark .emblem-quote, body.dark .hero-bubble, body.dark .hero-sub-pill, body.dark .book-quote{ background:#1E2438; color:var(--ink); border-color:#333D5F; }
+body.dark .side-item:hover{ background:#232A42; }
+body.dark .side-item.active{ background:linear-gradient(120deg,var(--sky-soft),var(--rose-soft)); }
+body.dark .sidebar-deco{ background:linear-gradient(160deg,#1E2438,var(--rose-soft)); border-color:#333D5F; }
+body.dark .room-card, body.dark .work-card, body.dark .form-card, body.dark .lb-item, body.dark .idea-card, body.dark .guide-card, body.dark .settings-card, body.dark .modal{ background:#1E2438; border-color:#333D5F; }
+body.dark .dropzone{ background:#232A42; border-color:#333D5F; }
+body.dark .field input, body.dark .field select, body.dark .field textarea{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .advisor-panel{ background:linear-gradient(165deg,#241F3D,#1E2438); border-color:#3A3564; }
+body.dark .advisor-tabs, body.dark .api-box, body.dark .msg.bot, body.dark .idea-result{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .key-row input, body.dark select.mini{ background:#1E2438; border-color:#333D5F; color:var(--ink); }
+body.dark .quick-chips button{ background:#232A42; border-color:#333D5F; color:var(--ink-mid); }
+body.dark .comment-item{ background:#232A42; }
+body.dark .work-thumb{ background:#2A3150; }
+body.dark .empty-room{ color:#7A84AC; }
+
+/* print */
+#print-area{ display:none; }
+@media print{
+  body *{ visibility:hidden; }
+  #print-area, #print-area *{ visibility:visible; }
+  #print-area{ display:block !important; position:absolute; top:0; left:0; width:100%; padding:40px; }
+}
+
+/* ===== HERO ẢNH BÌA MỚI ===== */
+.hero-banner{
+  position:relative!important;
+  margin:14px auto 0!important;
+  max-width:1360px!important;
+  width:100%!important;
+  aspect-ratio:2048/768!important;
+  min-height:0!important;
+  padding:0!important;
+  display:block!important;
+  border-radius:26px!important;
+  overflow:hidden!important;
+  background-image:url('assets/image_01.png')!important;
+  background-size:contain!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-color:#e9f7ff!important;
+  border:2px solid rgba(255,255,255,.95)!important;
+  box-shadow:0 18px 45px -24px rgba(35,49,86,.32)!important;
+}
+.hero-banner > *{display:none!important}
+@media(max-width:700px){
+  .hero-banner{border-radius:16px!important;aspect-ratio:2048/768!important;background-size:contain!important}
+}
+
+
+/* ===== PHÒNG TRANH THÁNG – BẢN MINH HỌA ===== */
+.room-grid{gap:18px!important}
+.room-card{
+  position:relative; border-radius:22px!important; overflow:hidden;
+  background:linear-gradient(180deg,#fff,#fffaf6)!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+  box-shadow:0 14px 34px -18px rgba(35,49,86,.28)!important;
+}
+.room-card:hover{transform:translateY(-7px) scale(1.015)!important;box-shadow:0 20px 42px -18px rgba(35,49,86,.34)!important}
+.room-badge{position:absolute!important;z-index:4;top:8px;left:8px;margin:0!important;box-shadow:0 5px 12px rgba(35,49,86,.18);border:2px solid rgba(255,255,255,.9)}
+.room-illust{
+  height:180px!important; margin:0!important; border-radius:0!important;
+  display:block!important; position:relative!important; overflow:hidden!important;
+  background-size:cover!important; background-position:center!important;
+}
+.room-illust:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(255,255,255,.88))}
+.room-illust .room-float-icon{
+  position:absolute;right:10px;bottom:10px;z-index:2;width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(255,255,255,.92);box-shadow:0 5px 14px rgba(35,49,86,.18);font-size:1.35rem
+}
+.room-body{padding:12px 14px 14px!important}
+.room-title{font-size:.9rem!important;min-height:44px!important}
+.room-count{margin:5px 0 11px!important}
+.room-btn{padding:10px!important;border-radius:12px!important;box-shadow:0 8px 16px -10px rgba(0,0,0,.4)}
+@media(max-width:640px){.room-illust{height:145px!important}.room-grid{gap:12px!important}}
+
+
+/* Phiên bản ảnh phòng tranh sạch: không lặp nhãn tháng trên ảnh */
+.room-card .room-badge{display:none!important}
+.room-illust{height:190px!important;background-size:320% auto!important;background-repeat:no-repeat!important}
+@media(max-width:640px){.room-illust{height:155px!important}}
+
+
+/* 10 ảnh chủ đề riêng biệt cho 10 phòng tranh */
+.room-illust{
+  height:190px!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+.room-card .room-badge{display:none!important}
+@media(max-width:640px){.room-illust{height:155px!important}}
+
+
+/* ===== SỬA ĐỘ TƯƠNG PHẢN CHẾ ĐỘ TỐI ===== */
+body.dark .room-card,
+[data-theme="dark"] .room-card,
+.dark .room-card{
+  background:linear-gradient(180deg,#17213a 0%,#111a2f 100%)!important;
+  border-color:#344565!important;
+}
+body.dark .room-body,
+[data-theme="dark"] .room-body,
+.dark .room-body{
+  background:#17213a!important;
+}
+body.dark .room-title,
+[data-theme="dark"] .room-title,
+.dark .room-title{
+  color:#f8fbff!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+body.dark .room-count,
+[data-theme="dark"] .room-count,
+.dark .room-count{
+  color:#b9c9e5!important;
+  opacity:1!important;
+}
+body.dark .room-card p,
+body.dark .room-card small,
+body.dark .room-card span:not(.room-float-icon),
+[data-theme="dark"] .room-card p,
+[data-theme="dark"] .room-card small,
+.dark .room-card p,
+.dark .room-card small{
+  color:#dbe8ff!important;
+}
+body.dark .room-btn,
+[data-theme="dark"] .room-btn,
+.dark .room-btn{
+  color:#fff!important;
+  font-weight:800!important;
+}
+body.dark .section-title,
+body.dark h1, body.dark h2, body.dark h3,
+[data-theme="dark"] .section-title,
+.dark .section-title{
+  color:#f4f8ff!important;
+}
+body.dark .latest-title,
+body.dark .section-subtitle,
+body.dark .empty-state,
+body.dark .work-title,
+body.dark .work-author,
+body.dark .work-meta{
+  color:#e8f1ff!important;
+}
+body.dark .main-content,
+body.dark main{
+  color:#eaf2ff;
+}
+body.dark input,
+body.dark select,
+body.dark textarea{
+  color:#eef5ff!important;
+  background:#18233d!important;
+  border-color:#3b4d70!important;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder{color:#9fb0cd!important;opacity:1}
+body.dark .gallery-intro-text,
+body.dark .gallery-intro-text h3,
+body.dark .gallery-intro-text p{color:#fff!important}
+
+
+/* ===== DARK MODE V2: ĐỘ TƯƠNG PHẢN TOÀN DIỆN ===== */
+body.dark{color:#f3f7ff!important}
+body.dark .modal-card, body.dark .modal-content, body.dark .detail-card,
+body.dark .dialog, body.dark .work-detail, body.dark .panel,
+body.dark [class*="modal"] [class*="content"]{
+  background:#1c2742!important;color:#f4f8ff!important;border-color:#405277!important
+}
+body.dark .modal-card h1,body.dark .modal-card h2,body.dark .modal-card h3,
+body.dark .modal-content h1,body.dark .modal-content h2,body.dark .modal-content h3,
+body.dark .detail-card h1,body.dark .detail-card h2,body.dark .detail-card h3,
+body.dark .work-detail h1,body.dark .work-detail h2,body.dark .work-detail h3{
+  color:#fff!important
+}
+body.dark .modal-card p,body.dark .modal-card small,body.dark .modal-card label,
+body.dark .modal-content p,body.dark .modal-content small,body.dark .modal-content label,
+body.dark .detail-card p,body.dark .detail-card small,body.dark .detail-card label,
+body.dark .work-detail p,body.dark .work-detail small,body.dark .work-detail label{
+  color:#dbe7fb!important;opacity:1!important
+}
+body.dark .meta,body.dark .work-meta,body.dark .author,body.dark .comment-empty,
+body.dark .empty-state,body.dark .muted,body.dark [class*="subtitle"],
+body.dark [class*="description"]{color:#b8c8e6!important;opacity:1!important}
+body.dark .chip,body.dark .tag,body.dark .badge{
+  color:#eaf3ff!important;background:#263859!important;border-color:#49628d!important
+}
+body.dark .close-btn,body.dark .modal-close{
+  color:#17213a!important;background:#fff9ed!important
+}
+body.dark button:disabled{color:#73829e!important;background:#e8edf5!important;opacity:.72!important}
+body.dark .toast{color:#10203a!important;background:#f4f7fb!important;border-color:#dce5f0!important}
+body.dark .comment-item,body.dark .comment-box{
+  color:#eef5ff!important;background:#17233d!important;border-color:#3d5074!important
+}
+body.dark a{color:#78b7ff}
+body.dark .danger,body.dark .delete-btn{color:#ff607d!important}
+
+</style>
+</head>
+<body>
+
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="bg-blob blob-3"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">🎨 <span>Phòng Tranh</span></div>
+    <div class="topnav" id="topNav">
+      <button data-view="home" class="active">🏠 Trang chủ</button>
+      <button data-view="rooms">📅 10 Phòng tranh theo tháng</button>
+      <button data-view="upload">✏️ Đăng tác phẩm</button>
+      <button data-view="featured">🏆 Tác phẩm nổi bật</button>
+      <button data-view="library">📚 Thư viện</button>
+      <button data-view="advisor">🤖 Cố vấn AI</button>
+      <button data-view="settings">⚙️ Cài đặt</button>
+    </div>
+    <div class="search-box"><span>🔍</span><input type="text" id="searchInput" placeholder="Tìm tác phẩm, tác giả, chủ đề..."></div>
+    <button class="icon-btn" id="btnDarkToggle" title="Chế độ tối">🌙</button>
+    <button class="icon-btn" id="btnReminderOpen" title="Nhắc nhở">⏰</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- HERO BANNER -->
+  <div class="hero-banner reveal">
+    <span class="hero-decor" style="top:8%;left:36%;">🌸</span>
+    <span class="hero-decor" style="top:70%;left:44%;">🦋</span>
+    <span class="hero-decor" style="top:14%;right:30%;">✈️</span>
+    <span class="hero-decor" style="bottom:10%;right:28%;">🌿</span>
+    <div class="hero-emblem">
+      <div class="emblem-badge">THPT<br>HUỲNH VĂN<br>NGHỆ<br>· 1959 ·</div>
+      <div class="emblem-quote">"Tri thức – Nhân ái<br>Sáng tạo – Vươn xa"</div>
+    </div>
+    <div class="hero-center">
+      <div class="hero-bubble">💬 Văn chương kết nối những tâm hồn đẹp!</div>
+      <h1 class="hero-title">PHÒNG TRANH<br><span>CLB VĂN HAY CHỮ TỐT</span></h1>
+      <div><span class="hero-ribbon">🏫 TRƯỜNG THPT HUỲNH VĂN NGHỆ</span><span class="hero-sub-pill">✍️ TỔ NGỮ VĂN</span></div>
+      <div class="hero-tagline">"Nơi những trang viết hoá thành sắc màu cuộc sống"</div>
+    </div>
+    <div class="hero-right">
+      <div class="book-quote">📖 Viết để hiểu mình<br>Đọc để lớn lên<br>Sáng tạo để toả sáng</div>
+      <div class="sign-list">
+        <div class="sign">🗓️ Mỗi tháng</div>
+        <div class="sign">🎯 Một chủ đề</div>
+        <div class="sign">🌟 Một trải nghiệm</div>
+        <div class="sign">🖼️ Một phòng tranh</div>
+        <div class="sign">✨ Đầy cảm hứng</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP SHELL -->
+  <div class="app-shell" id="appShell">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <button class="side-item active" data-view="home"><span class="ic">🏠</span><span class="side-label">Trang chủ</span></button>
+      <button class="side-item" data-view="about"><span class="ic">📌</span><span class="side-label">Giới thiệu CLB</span></button>
+      <button class="side-item" data-view="rooms"><span class="ic">🖼️</span><span class="side-label">10 Phòng tranh</span></button>
+      <button class="side-item" data-view="upload"><span class="ic">➕</span><span class="side-label">Đăng tác phẩm</span></button>
+      <button class="side-item" data-view="my-works"><span class="ic">👤</span><span class="side-label">Tác phẩm của tôi</span></button>
+      <button class="side-item" data-view="featured"><span class="ic">🏆</span><span class="side-label">Tác phẩm nổi bật</span></button>
+      <button class="side-item" data-view="leaderboard"><span class="ic">📊</span><span class="side-label">Bảng xếp hạng</span></button>
+      <button class="side-item" data-view="ideas"><span class="ic">💡</span><span class="side-label">Thư viện ý tưởng</span></button>
+      <button class="side-item" data-view="advisor"><span class="ic">🤖</span><span class="side-label">Cố vấn AI Ngữ Văn</span></button>
+      <button class="side-item" id="sideExportPdf"><span class="ic">📄</span><span class="side-label">Xuất PDF</span></button>
+      <button class="side-item" data-view="guide"><span class="ic">❓</span><span class="side-label">Hướng dẫn sử dụng</span></button>
+      <button class="side-item" data-view="settings"><span class="ic">⚙️</span><span class="side-label">Cài đặt</span></button>
+      <div class="sidebar-deco side-label">📖<br>Văn hay – Chữ tốt<br>Tâm hồn đẹp – Ước mơ lớn 🌸</div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div>
+      <!-- HOME VIEW -->
+      <div class="view active" id="view-home">
+        <div class="section-title reveal"><span class="fl">🌸</span> 10 Phòng tranh theo chủ đề các tháng của CLB</div>
+        <div class="room-grid reveal" id="roomGridHome"></div>
+
+        <div class="section-title reveal" style="margin-top:30px;"><span class="fl">🆕</span> Tác phẩm mới nhất</div>
+        <div class="works-row reveal" id="latestWorks"></div>
+      </div>
+
+      <!-- ROOMS LIST VIEW -->
+      <div class="view" id="view-rooms">
+        <div class="section-title"><span class="fl">🖼️</span> 10 Phòng tranh theo chủ đề các tháng</div>
+        <div class="room-grid" id="roomGridFull"></div>
+      </div>
+
+      <!-- ROOM DETAIL VIEW -->
+      <div class="view" id="view-room-detail">
+        <button class="btn btn-ghost btn-sm" id="btnBackToRooms" style="margin-bottom:14px;">← Quay lại danh sách phòng tranh</button>
+        <div class="room-detail-head">
+          <div class="rd-illust" id="rdIllust"></div>
+          <div>
+            <h2 id="rdTitle" style="margin:0;font-size:1.2rem;"></h2>
+            <div id="rdCount" style="font-size:.82rem;color:var(--ink-mid);"></div>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btnUploadToRoom" style="margin-left:auto;">➕ Đăng tác phẩm vào phòng này</button>
+        </div>
+        <div class="gallery-grid" id="roomGallery"></div>
+      </div>
+
+      <!-- UPLOAD VIEW -->
+      <div class="view" id="view-upload">
+        <div class="section-title"><span class="fl">✏️</span> Đăng tác phẩm mới</div>
+        <div class="form-card">
+          <div class="field">
+            <label>Chọn phòng tranh (chủ đề tháng)</label>
+            <select id="upRoom"></select>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Tên tác phẩm</label><input type="text" id="upTitle" placeholder="VD: Chiều thu trên sân trường"></div>
+            <div class="field"><label>Thể loại</label>
+              <select id="upType">
+                <option>Tranh vẽ</option><option>Ảnh chụp</option><option>Thư pháp</option><option>Thơ</option><option>Truyện ngắn</option><option>Khác</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Họ tên tác giả</label><input type="text" id="upAuthor" placeholder="Nguyễn Văn A"></div>
+            <div class="field"><label>Lớp</label><input type="text" id="upClass" placeholder="12A1"></div>
+          </div>
+          <div class="field">
+            <label>Hình ảnh tác phẩm</label>
+            <div class="dropzone" id="dropzone">
+              <div class="dz-icon">🖼️</div>
+              <div class="dz-text">Nhấn để chọn ảnh hoặc kéo thả vào đây</div>
+              <input type="file" id="upFile" accept="image/*" style="display:none;">
+              <img id="upPreview" class="preview-img" style="display:none;">
+            </div>
+          </div>
+          <div class="field">
+            <label>Lời bình / mô tả tác phẩm</label>
+            <textarea id="upCaption" placeholder="Chia sẻ cảm xúc, ý tưởng đằng sau tác phẩm của em..."></textarea>
+          </div>
+          <button class="btn btn-primary btn-block" id="btnSubmitWork">🚀 Đăng tác phẩm</button>
+        </div>
+      </div>
+
+      <!-- MY WORKS VIEW -->
+      <div class="view" id="view-my-works">
+        <div class="section-title"><span class="fl">👤</span> Tác phẩm của tôi</div>
+        <div class="gallery-grid" id="myWorksGrid"></div>
+      </div>
+
+      <!-- FEATURED VIEW -->
+      <div class="view" id="view-featured">
+        <div class="section-title"><span class="fl">🏆</span> Tác phẩm nổi bật (nhiều lượt thích nhất)</div>
+        <div class="gallery-grid" id="featuredGrid"></div>
+      </div>
+
+      <!-- LIBRARY VIEW (all works / search results) -->
+      <div class="view" id="view-library">
+        <div class="section-title"><span class="fl">📚</span> Thư viện tác phẩm</div>
+        <div class="field" style="max-width:320px;">
+          <select id="libRoomFilter"><option value="">Tất cả phòng tranh</option></select>
+        </div>
+        <div class="gallery-grid" id="libraryGrid"></div>
+      </div>
+
+      <!-- LEADERBOARD VIEW -->
+      <div class="view" id="view-leaderboard">
+        <div class="section-title"><span class="fl">📊</span> Bảng xếp hạng tác giả (theo lượt thích)</div>
+        <div class="lb-list" id="lbList"></div>
+      </div>
+
+      <!-- IDEAS VIEW -->
+      <div class="view" id="view-ideas">
+        <div class="section-title"><span class="fl">💡</span> Thư viện ý tưởng sáng tác</div>
+        <div class="idea-grid" id="ideaGrid"></div>
+      </div>
+
+      <!-- ABOUT VIEW -->
+      <div class="view" id="view-about">
+        <div class="section-title"><span class="fl">📌</span> Giới thiệu CLB Văn Hay Chữ Tốt</div>
+        <div class="guide-card">
+          <h4>🏫 Về câu lạc bộ</h4>
+          <p>CLB Văn Hay Chữ Tốt trực thuộc Tổ Ngữ Văn, Trường THPT Huỳnh Văn Nghệ, là sân chơi dành cho học sinh yêu thích viết lách, hội hoạ và sáng tạo nghệ thuật. Mỗi tháng, CLB mở một "phòng tranh" chủ đề mới để các thành viên thoả sức thể hiện cảm xúc qua tranh vẽ, ảnh chụp, thư pháp, thơ văn.</p>
+        </div>
+        <div class="guide-card">
+          <h4>🎯 Sứ mệnh</h4>
+          <p>Kết nối những tâm hồn yêu văn chương, khơi dậy cảm hứng đọc – viết – sáng tạo, xây dựng một không gian trưng bày trực tuyến nơi mọi tác phẩm của học sinh đều được trân trọng và lan toả.</p>
+        </div>
+        <div class="guide-card">
+          <h4>🌟 Giá trị cốt lõi</h4>
+          <p>Văn hay – Chữ tốt – Tâm hồn đẹp – Ước mơ lớn. CLB tin rằng mỗi trang viết, mỗi nét vẽ đều là một cách để học sinh hiểu mình, lớn lên và toả sáng.</p>
+        </div>
+      </div>
+
+      <!-- GUIDE VIEW -->
+      <div class="view" id="view-guide">
+        <div class="section-title"><span class="fl">❓</span> Hướng dẫn sử dụng</div>
+        <div class="guide-card"><h4>1️⃣ Đăng tác phẩm</h4><p>Vào mục "Đăng tác phẩm", chọn phòng tranh phù hợp với chủ đề tháng, điền thông tin và tải ảnh tác phẩm lên. Nhấn "Đăng tác phẩm" để hoàn tất.</p></div>
+        <div class="guide-card"><h4>2️⃣ Thả tim & bình luận</h4><p>Nhấn vào biểu tượng ❤️ dưới mỗi tác phẩm để thả tim. Nhấn vào tác phẩm để xem chi tiết và để lại bình luận động viên bạn bè.</p></div>
+        <div class="guide-card"><h4>3️⃣ Cố vấn AI Ngữ Văn</h4><p>Kết nối API Key Gemini miễn phí trong mục "Cố vấn AI" để trò chuyện, xin gợi ý ý tưởng sáng tác theo chủ đề tháng, hoặc nhận góp ý cho bài viết của em.</p></div>
+        <div class="guide-card"><h4>4️⃣ Xuất PDF</h4><p>Chọn "Xuất PDF" ở thanh bên để lưu một tác phẩm yêu thích thành file PDF để in hoặc lưu giữ kỷ niệm.</p></div>
+        <div class="guide-card"><h4>5️⃣ Dữ liệu của em</h4><p>Tác phẩm và dữ liệu được lưu ngay trên trình duyệt này. Em nên dùng "Sao lưu dữ liệu" trong Cài đặt để tránh mất dữ liệu khi đổi máy hoặc xoá trình duyệt.</p></div>
+      </div>
+
+      <!-- SETTINGS VIEW -->
+      <div class="view" id="view-settings">
+        <div class="section-title"><span class="fl">⚙️</span> Cài đặt</div>
+        <div class="settings-card">
+          <h4 style="margin-top:0;">👤 Thông tin của em</h4>
+          <div class="field"><label>Họ tên (để tự điền khi đăng tác phẩm)</label><input type="text" id="setName" placeholder="Nguyễn Văn A"></div>
+          <div class="field"><label>Lớp</label><input type="text" id="setClass" placeholder="12A1"></div>
+          <button class="btn btn-primary btn-sm" id="btnSaveProfile">💾 Lưu thông tin</button>
+        </div>
+        <div class="settings-card">
+          <h4 style="margin-top:0;">🌙 Giao diện</h4>
+          <div class="settings-row"><div><b>Chế độ tối</b></div><label class="switch"><input type="checkbox" id="darkSwitch"><span class="slider"></span></label></div>
+        </div>
+        <div class="settings-card">
+          <h4 style="margin-top:0;">⏰ Nhắc nhở đăng tác phẩm</h4>
+          <div class="settings-row"><div><b>Bật nhắc nhở hằng ngày</b></div><label class="switch"><input type="checkbox" id="reminderToggle"><span class="slider"></span></label></div>
+          <div class="field"><label>Giờ nhắc</label><input type="time" id="reminderTime" value="20:00"></div>
+          <button class="btn btn-primary btn-sm" id="btnSaveReminder">💾 Lưu nhắc nhở</button>
+        </div>
+        <div class="settings-card">
+          <h4 style="margin-top:0;">🔒 Dữ liệu</h4>
+          <p style="font-size:.82rem;color:var(--ink-mid);margin-top:0;">Toàn bộ tác phẩm, lượt thích, bình luận được lưu trên trình duyệt này (IndexedDB), không gửi lên máy chủ nào.</p>
+          <div style="display:flex;gap:10px;">
+            <button class="btn btn-ghost btn-sm" id="btnBackupData">⬇️ Sao lưu (.json)</button>
+            <button class="btn btn-ghost btn-sm" id="btnRestoreData">⬆️ Khôi phục</button>
+          </div>
+          <input type="file" id="restoreInput" accept="application/json" style="display:none;">
+        </div>
+      </div>
+
+      <!-- ADVISOR FULL-PAGE FALLBACK (for narrow screens where panel is hidden) -->
+      <div class="view" id="view-advisor">
+        <div class="section-title"><span class="fl">🤖</span> Cố vấn AI Ngữ Văn</div>
+        <p style="color:var(--ink-mid);font-size:.88rem;">Trò chuyện với Cố vấn AI ở khung bên phải nhé. Trên màn hình nhỏ, khung cố vấn nằm ngay bên dưới thanh điều hướng.</p>
+      </div>
+    </div>
+
+    <!-- ADVISOR PANEL (persistent) -->
+    <div class="advisor-panel" id="advisorPanel">
+      <div class="advisor-head">
+        <div class="ai-avatar">🤖</div>
+        <h3>Cố Vấn AI Ngữ Văn ✨</h3>
+        <p>Đồng hành cùng em trên hành trình đọc – viết – sáng tạo</p>
+      </div>
+      <div class="advisor-tabs">
+        <button class="atab active" data-tab="chat">💬 Trò chuyện</button>
+        <button class="atab" data-tab="theme">🎨 Gợi ý chủ đề</button>
+        <button class="atab" data-tab="guide">📖 Hướng dẫn</button>
+      </div>
+
+      <div class="advisor-tabpane active" id="tab-chat">
+        <div class="chat-body" id="chatBody">
+          <div class="msg bot">Xin chào! Tôi là Cố vấn AI Ngữ Văn ✨<br><br>Tôi có thể giúp bạn:<ul><li>Gợi ý ý tưởng sáng tác theo chủ đề tháng</li><li>Nhận xét, góp ý bài viết, bài thơ, tranh minh hoạ</li><li>Gợi ý cách trưng bày sản phẩm</li><li>Giải đáp thắc mắc về tác phẩm, tác giả, văn học</li></ul>Hãy nhập câu hỏi hoặc chia sẻ ý tưởng của bạn nhé!</div>
+        </div>
+        <div class="api-box">
+          <div class="ab-title">🔗 KẾT NỐI GEMINI API <span class="help-link" id="helpToggle" style="margin-left:auto;">📖 Hướng dẫn lấy API Key</span></div>
+          <div class="help-box" id="helpBox" style="display:none;font-size:.72rem;line-height:1.7;background:var(--sky-soft);border-radius:10px;padding:10px;margin-bottom:10px;">
+            <ol style="margin:0;padding-left:16px;">
+              <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a></li>
+              <li>Đăng nhập tài khoản Google của em</li>
+              <li>Nhấn "Create API key"</li>
+              <li>Sao chép mã Key (AIzaSy...)</li>
+              <li>Dán vào ô bên dưới rồi nhấn "Lưu Key"</li>
+            </ol>
+          </div>
+          <div class="key-row"><input type="password" id="apiKeyInput" placeholder="Nhập Gemini API Key của bạn..."><button id="toggleKeyVisible">👁️</button></div>
+          <button class="btn btn-primary btn-sm btn-block" id="btnSaveKey" style="margin-bottom:8px;">💾 Lưu Key</button>
+          <div style="font-size:.72rem;font-weight:800;color:var(--ink-mid);margin-bottom:4px;">Chọn mô hình Gemini:</div>
+          <select class="mini" id="modelSelect">
+            <optgroup label="✨ Mới nhất — Gemini 3.x">
+              <option value="gemini-3.8-flash" selected>✨ Gemini 3.8 Flash (Mới nhất)</option>
+              <option value="gemini-3.7-flash">Gemini 3.7 Flash</option>
+              <option value="gemini-3.6-flash">Gemini 3.6 Flash</option>
+              <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
+              <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (siêu nhanh)</option>
+              <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</option>
+              <option value="gemini-3.1-pro-preview">Gemini 3.1 Pro (Preview, suy luận sâu)</option>
+            </optgroup>
+            <optgroup label="🕰️ Dự phòng — Gemini 2.5 (sắp ngừng hỗ trợ)">
+              <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite</option>
+            </optgroup>
+          </select>
+          <div class="api-btn-row">
+            <button class="btn btn-ghost btn-sm" id="btnTestConn">⚡ Kiểm tra kết nối</button>
+            <button class="btn btn-ghost btn-sm" id="btnMoreModels">Xem các mô hình khác</button>
+          </div>
+          <div class="status-line"><span class="dot" id="statusDot"></span><span id="statusText">Chưa kết nối API Key</span></div>
+        </div>
+        <div class="quick-chips" id="quickChips">
+          <button data-q="Gợi ý cho em cách viết thơ về thầy cô nhân dịp 20/11">Gợi ý viết thơ</button>
+          <button data-q="Em vừa viết một đoạn văn tả cảnh sân trường, làm sao để bài viết hay hơn?">Góp ý bài viết</button>
+          <button data-q="Chủ đề tháng này của phòng tranh là gì, em nên sáng tác gì?">Ý tưởng theo tháng</button>
+          <button data-q="Hãy phân tích ngắn gọn ý nghĩa của bài thơ Mùa xuân nho nhỏ">Phân tích tác phẩm</button>
+          <button data-q="Em nên trưng bày một bức tranh chủ đề mùa thu như thế nào cho đẹp mắt?">Cách trưng bày</button>
+          <button data-q="Cho em một lời nhắc nhở học tập môn Ngữ Văn thật cảm hứng">Lời nhắc học tập</button>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Nhập câu hỏi, ý tưởng hoặc yêu cầu...">
+          <button id="chatSend">➤</button>
+        </div>
+      </div>
+
+      <div class="advisor-tabpane" id="tab-theme">
+        <div class="theme-suggest">
+          <div style="font-size:.76rem;font-weight:800;color:var(--ink-mid);margin-bottom:6px;">Chọn chủ đề tháng để nhận gợi ý sáng tác:</div>
+          <select class="mini" id="themeRoomSelect"></select>
+          <button class="btn btn-primary btn-sm btn-block" id="btnGenIdeas" style="margin-bottom:10px;">✨ Gợi ý ý tưởng sáng tác</button>
+        </div>
+        <div class="idea-result" id="themeIdeaResult">Chọn một chủ đề và nhấn nút để nhận gợi ý từ Cố vấn AI nhé!</div>
+      </div>
+
+      <div class="advisor-tabpane" id="tab-guide">
+        <div style="font-size:.8rem;line-height:1.8;color:var(--ink-mid);">
+          <b style="color:var(--ink);">💡 Mẹo trò chuyện hiệu quả với Cố vấn AI:</b>
+          <ul style="padding-left:18px;">
+            <li>Nói rõ thể loại (thơ, văn xuôi, tranh vẽ...) để nhận gợi ý phù hợp</li>
+            <li>Dán đoạn văn/thơ của em vào khung chat để xin góp ý cụ thể</li>
+            <li>Hỏi về tác giả, tác phẩm văn học em đang học để được giải thích dễ hiểu</li>
+            <li>Cố vấn không thay thế thầy cô — hãy xem đây là một người bạn gợi mở ý tưởng</li>
+          </ul>
+          Cần hướng dẫn đầy đủ về cả trang web? Xem mục <b>"Hướng dẫn sử dụng"</b> ở thanh bên trái nhé.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK DETAIL MODAL -->
+<div class="overlay" id="workOverlay">
+  <div class="modal wide">
+    <div class="modal-head"><h3>Chi tiết tác phẩm</h3><button id="btnWorkClose">✕</button></div>
+    <img class="modal-img" id="workModalImg">
+    <div class="modal-body">
+      <div class="modal-meta">
+        <div><h4 id="workModalTitle"></h4><div class="ma" id="workModalAuthor"></div></div>
+        <div class="modal-tag" id="workModalRoom"></div>
+      </div>
+      <div class="modal-caption" id="workModalCaption"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost btn-sm" id="workLikeBtn">🤍 Thích</button>
+        <button class="btn btn-ghost btn-sm" id="workPdfBtn">📄 Xuất PDF</button>
+        <button class="btn btn-ghost btn-sm" id="workDeleteBtn" style="margin-left:auto;color:var(--rose);">🗑️ Xoá (tác phẩm của tôi)</button>
+      </div>
+      <div style="font-weight:800;font-size:.84rem;margin-bottom:8px;">💬 Bình luận</div>
+      <div class="comment-list" id="commentList"></div>
+      <div class="comment-form">
+        <input type="text" id="commentInput" placeholder="Viết bình luận động viên...">
+        <button id="commentSend">Gửi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PDF EXPORT PICKER MODAL -->
+<div class="overlay" id="pdfPickerOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>📄 Xuất PDF tác phẩm</h3><button id="btnPdfPickerClose">✕</button></div>
+    <div class="modal-simple">
+      <div class="field"><label>Chọn phòng tranh</label><select id="pdfRoomSelect"></select></div>
+      <div class="field"><label>Chọn tác phẩm</label><select id="pdfWorkSelect"></select></div>
+      <button class="btn btn-primary btn-block" id="btnDoExportPdf">📄 Xuất PDF ngay</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODELS INFO MODAL -->
+<div class="overlay" id="modelsInfoOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>✨ Các mô hình Gemini hiện có</h3><button id="btnModelsInfoClose">✕</button></div>
+    <div class="modal-simple" style="font-size:.82rem;line-height:1.8;color:var(--ink-mid);">
+      <p><b style="color:var(--ink);">Gemini 3.8 Flash</b> — mới nhất (9/2026), thông minh và nhanh nhất dòng Flash, khuyên dùng mặc định.</p>
+      <p><b style="color:var(--ink);">Gemini 3.7 / 3.6 Flash</b> — ổn định, tốc độ tốt, phù hợp trò chuyện hằng ngày.</p>
+      <p><b style="color:var(--ink);">Gemini 3.5 Flash / Flash-Lite</b> — nhẹ, phản hồi rất nhanh, tiết kiệm hạn mức miễn phí.</p>
+      <p><b style="color:var(--ink);">Gemini 3.1 Pro (Preview)</b> — suy luận sâu hơn, phù hợp phân tích tác phẩm dài, tốc độ chậm hơn.</p>
+      <p><b style="color:var(--ink);">Gemini 2.5 Flash-Lite</b> — model dự phòng, sẽ ngừng hỗ trợ cuối tháng 10/2026.</p>
+    </div>
+  </div>
+</div>
+
+<!-- REMINDER MODAL -->
+<div class="overlay" id="reminderOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>⏰ Nhắc nhở đăng tác phẩm</h3><button id="btnReminderClose">✕</button></div>
+    <div class="modal-simple">
+      <p style="font-size:.84rem;color:var(--ink-mid);">Cài đặt chi tiết ở mục <b>Cài đặt</b> trong thanh bên. Bật nhanh tại đây:</p>
+      <div class="settings-row"><div><b>Bật nhắc nhở</b></div><label class="switch"><input type="checkbox" id="reminderToggleQuick"><span class="slider"></span></label></div>
+      <input type="time" class="field" style="width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--line);" id="reminderTimeQuick" value="20:00">
+      <button class="btn btn-primary btn-block" id="btnSaveReminderQuick" style="margin-top:14px;">💾 Lưu</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div id="print-area"></div>
+
+<script>
+/* ================= Rooms data ================= */
+const ROOM_IMAGES = {"thang8":"assets/image_02.jpg","thang9":"assets/image_03.jpg","thang10":"assets/image_04.jpg","thang11":"assets/image_05.jpg","thang12":"assets/image_06.jpg","thang1":"assets/image_07.jpg","thang2":"assets/image_08.jpg","thang3":"assets/image_09.jpg","thang4":"assets/image_10.jpg","thang5":"assets/image_11.jpg"};
+const ROOM_IMAGE_POS = {};
+const ROOMS = [
+  {id:'thang8',  month:'Tháng 8',  title:'Khởi nguồn đam mê & Không gian Văn học số', color:'sky',    icon:'💻'},
+  {id:'thang9',  month:'Tháng 9',  title:'Trăng thu & Trang sách nhỏ',                 color:'leaf',   icon:'🌕'},
+  {id:'thang10', month:'Tháng 10', title:'Hương sắc Việt Nam',                          color:'gold',   icon:'🌾'},
+  {id:'thang11', month:'Tháng 11', title:'Người gieo hạt nắng',                         color:'rose',   icon:'🌻'},
+  {id:'thang12', month:'Tháng 12', title:'Hát mãi khúc quân hành',                      color:'sky',    icon:'🎺'},
+  {id:'thang1',  month:'Tháng 1',  title:'Cung đàn mùa xuân',                           color:'violet', icon:'🎸'},
+  {id:'thang2',  month:'Tháng 2',  title:'Mùa xuân nho nhỏ',                            color:'leaf',   icon:'🌼'},
+  {id:'thang3',  month:'Tháng 3',  title:'Thanh xuân rực rỡ & Học đường an toàn',       color:'sky',    icon:'🎒'},
+  {id:'thang4',  month:'Tháng 4',  title:'Đất nước trọn niềm vui',                      color:'gold',   icon:'🇻🇳'},
+  {id:'thang5',  month:'Tháng 5',  title:'Chuyến đò tháng Năm',                         color:'rose',   icon:'🚢'}
+];
+const IDEA_BANK = {
+  thang8:['Vẽ hoặc viết về góc học tập mơ ước của em','Cảm nhận về ngày khai giảng đáng nhớ nhất','Thiết kế một "thư viện số" trong tưởng tượng của em'],
+  thang9:['Bài thơ ngắn về ánh trăng rằm tháng Tám','Vẽ một góc phố đêm hội trăng rằm','Kể lại kỷ niệm đọc sách dưới ánh trăng'],
+  thang10:['Vẽ tà áo dài hoặc món ăn đặc trưng Việt Nam','Viết đoạn văn về một lễ hội truyền thống em yêu thích','Thư pháp một câu ca dao, tục ngữ ý nghĩa'],
+  thang11:['Bức thư cảm ơn thầy cô nhân ngày 20/11','Vẽ chân dung người thầy/cô em kính trọng','Bài thơ về "người gieo hạt nắng" trong cuộc đời em'],
+  thang12:['Vẽ hoặc viết về chú bộ đội Cụ Hồ','Cảm nhận về một bài hát cách mạng em yêu thích','Kể chuyện về một tấm gương anh hùng nhỏ tuổi'],
+  thang1:['Vẽ không khí Tết cổ truyền của gia đình em','Bài thơ về mùa xuân và tuổi trẻ','Viết về một phong tục ngày Tết em trân trọng'],
+  thang2:['Cảm nhận về bài thơ Mùa xuân nho nhỏ (Thanh Hải)','Vẽ một nhành mai/đào ngày xuân','Viết đoạn văn về ước mơ "làm mùa xuân nho nhỏ" của em'],
+  thang3:['Vẽ tranh cổ động về học đường an toàn, không bạo lực','Bài viết về tuổi thanh xuân rực rỡ của em','Sáng tác khẩu hiệu về an toàn học đường'],
+  thang4:['Vẽ hoặc viết về ngày thống nhất đất nước','Cảm nhận về một trang sử hào hùng của dân tộc','Bài thơ ca ngợi vẻ đẹp quê hương Việt Nam'],
+  thang5:['Vẽ hoặc viết về người lái đò tri thức - thầy cô','Cảm xúc chia tay mái trường của học sinh cuối cấp','Viết lời tri ân gửi đến trường THPT Huỳnh Văn Nghệ']
+};
+function roomOf(id){ return ROOMS.find(r=>r.id===id); }
+function esc(s){ return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function uid(){ return 'w_'+Date.now()+'_'+Math.random().toString(36).slice(2,8); }
+
+/* ================= IndexedDB layer ================= */
+const DB_NAME='phong_tranh_db', DB_VERSION=1, STORE='artworks';
+function openDB(){
+  return new Promise((res,rej)=>{
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = e=>{
+      const db = e.target.result;
+      if(!db.objectStoreNames.contains(STORE)){
+        const os = db.createObjectStore(STORE, {keyPath:'id'});
+        os.createIndex('room','room');
+      }
+    };
+    req.onsuccess = e=> res(e.target.result);
+    req.onerror = e=> rej(e);
+  });
+}
+function dbAdd(item){ return openDB().then(db=> new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).add(item); tx.oncomplete=()=>res(item); tx.onerror=e=>rej(e); })); }
+function dbPut(item){ return openDB().then(db=> new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).put(item); tx.oncomplete=()=>res(item); tx.onerror=e=>rej(e); })); }
+function dbDelete(id){ return openDB().then(db=> new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readwrite'); tx.objectStore(STORE).delete(id); tx.oncomplete=()=>res(); tx.onerror=e=>rej(e); })); }
+function dbGetAll(){ return openDB().then(db=> new Promise((res,rej)=>{ const tx=db.transaction(STORE,'readonly'); const req=tx.objectStore(STORE).getAll(); req.onsuccess=()=>res(req.result||[]); req.onerror=e=>rej(e); })); }
+
+let ALL_WORKS = [];
+function likedIds(){ return JSON.parse(localStorage.getItem('ptc_liked')||'[]'); }
+function isLiked(id){ return likedIds().includes(id); }
+function getProfile(){ return JSON.parse(localStorage.getItem('ptc_profile')||'{}'); }
+
+/* ================= Toast & confetti ================= */
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(()=> t.classList.remove('show'), 2600);
+}
+function launchConfetti(count){
+  const canvas = document.getElementById('confetti-canvas');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+  const colors = ['#5B8DEF','#EF5F86','#F2A93B','#4FAE7B','#8E6CF0'];
+  const pieces = Array.from({length:count||80}, () => ({
+    x: Math.random()*canvas.width, y: -20-Math.random()*200, r: 4+Math.random()*5,
+    c: colors[Math.floor(Math.random()*colors.length)], vy: 2+Math.random()*3, vx: -1.5+Math.random()*3,
+    rot: Math.random()*360, vr: -6+Math.random()*12
+  }));
+  let frame = 0;
+  function draw(){
+    frame++;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.6);
+      ctx.restore();
+    });
+    if(frame < 110) requestAnimationFrame(draw); else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+}
+function heartBurst(x,y){
+  const el = document.createElement('div');
+  el.className = 'heart-burst'; el.textContent = '❤️';
+  el.style.left = (x-11)+'px'; el.style.top = (y-11)+'px';
+  document.body.appendChild(el);
+  setTimeout(()=> el.remove(), 1000);
+}
+function spawnPetals(){
+  const emojis = ['🌸','🍃','✨'];
+  for(let i=0;i<7;i++){
+    const p = document.createElement('span');
+    p.className = 'petal'; p.textContent = emojis[i % emojis.length];
+    p.style.left = (Math.random()*100)+'vw';
+    p.style.fontSize = (12+Math.random()*10)+'px';
+    p.style.animationDuration = (14+Math.random()*12)+'s';
+    p.style.animationDelay = (Math.random()*14)+'s';
+    p.style.opacity = (0.25+Math.random()*0.35).toFixed(2);
+    document.body.appendChild(p);
+  }
+}
+function bindReveal(){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+}
+
+/* ================= View routing ================= */
+function setView(viewId, opts){
+  opts = opts || {};
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const target = document.getElementById('view-'+viewId);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.topnav button').forEach(b=>b.classList.toggle('active', b.dataset.view===viewId));
+  document.querySelectorAll('.side-item[data-view]').forEach(b=>b.classList.toggle('active', b.dataset.view===viewId));
+  if(!opts.silentScroll) window.scrollTo({top:0, behavior:'smooth'});
+  renderViewContent(viewId, opts);
+}
+function renderViewContent(viewId, opts){
+  if(viewId==='home'){ renderRoomGrid('roomGridHome'); renderLatestWorks(); }
+  else if(viewId==='rooms'){ renderRoomGrid('roomGridFull'); }
+  else if(viewId==='upload'){ prefillUploadForm(opts && opts.room); }
+  else if(viewId==='my-works'){ renderMyWorks(); }
+  else if(viewId==='featured'){ renderFeatured(); }
+  else if(viewId==='library'){ renderLibrary(opts && opts.query); }
+  else if(viewId==='leaderboard'){ renderLeaderboard(); }
+  else if(viewId==='ideas'){ renderIdeas(); }
+}
+
+/* ================= Room grid rendering ================= */
+function roomCardHTML(room, count){
+  return `<div class="room-card reveal in">
+    
+    <div class="room-illust" style="background-image:url('${ROOM_IMAGES[room.id]}');background-position:center"><span class="room-float-icon">${room.icon}</span></div>
+    <div class="room-body">
+      <div class="room-title">${esc(room.title)}</div>
+      <div class="room-count">${count} tác phẩm</div>
+      <button class="room-btn" style="background:var(--${room.color})" data-room="${room.id}">Vào phòng tranh →</button>
+    </div>
+  </div>`;
+}
+function renderRoomGrid(containerId){
+  const el = document.getElementById(containerId);
+  el.innerHTML = ROOMS.map(r=> roomCardHTML(r, ALL_WORKS.filter(w=>w.room===r.id).length)).join('');
+  el.querySelectorAll('.room-btn').forEach(b=> b.addEventListener('click', ()=> openRoom(b.dataset.room)));
+}
+function openRoom(roomId){
+  const room = roomOf(roomId);
+  document.getElementById('rdIllust').textContent = room.icon;
+  document.getElementById('rdIllust').style.background = `var(--${room.color}-soft)`;
+  document.getElementById('rdTitle').textContent = `${room.month} · ${room.title}`;
+  const list = ALL_WORKS.filter(w=>w.room===roomId).sort((a,b)=> new Date(b.createdAt)-new Date(a.createdAt));
+  document.getElementById('rdCount').textContent = `${list.length} tác phẩm`;
+  document.getElementById('btnUploadToRoom').onclick = ()=> setView('upload', {room:roomId});
+  const gal = document.getElementById('roomGallery');
+  if(list.length===0){
+    gal.innerHTML = `<div class="empty-room" style="grid-column:1/-1;"><div class="em">🖼️</div>Chưa có tác phẩm nào trong phòng tranh này.<br>Hãy là người đầu tiên đăng tác phẩm nhé!</div>`;
+  } else {
+    gal.innerHTML = list.map(workCardHTML).join('');
+    wireWorkCards(gal);
+  }
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-room-detail').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.getElementById('btnBackToRooms').addEventListener('click', ()=> setView('rooms'));
+
+/* ================= Work card rendering ================= */
+function workCardHTML(w){
+  const liked = isLiked(w.id);
+  return `<div class="work-card" data-id="${w.id}">
+    <img class="work-thumb" src="${w.image}" alt="${esc(w.title)}">
+    <div class="work-body">
+      <div class="work-title">${esc(w.title)}</div>
+      <div class="work-author">${esc(w.author)} – ${esc(w.className)}</div>
+      <div class="work-stats">
+        <button class="like-btn ${liked?'liked':''}" data-id="${w.id}">${liked?'❤️':'🤍'} ${w.likes}</button>
+        <button class="comment-btn" data-id="${w.id}">💬 ${w.comments.length}</button>
+      </div>
+    </div>
+  </div>`;
+}
+function wireWorkCards(container){
+  container.querySelectorAll('.work-card').forEach(card=>{
+    card.addEventListener('click', (e)=>{ if(e.target.closest('button')) return; openWorkModal(card.dataset.id); });
+  });
+  container.querySelectorAll('.like-btn').forEach(b=>{
+    b.addEventListener('click', (e)=>{ e.stopPropagation(); doToggleLike(b.dataset.id, e); });
+  });
+  container.querySelectorAll('.comment-btn').forEach(b=>{
+    b.addEventListener('click', (e)=>{ e.stopPropagation(); openWorkModal(b.dataset.id, true); });
+  });
+}
+function doToggleLike(id, evt){
+  const w = ALL_WORKS.find(x=>x.id===id); if(!w) return;
+  const ids = likedIds();
+  const idx = ids.indexOf(id);
+  if(idx>-1){ ids.splice(idx,1); w.likes = Math.max(0, w.likes-1); }
+  else{ ids.push(id); w.likes++; if(evt) heartBurst(evt.clientX, evt.clientY); }
+  localStorage.setItem('ptc_liked', JSON.stringify(ids));
+  dbPut(w).then(()=> refreshAllViews());
+}
+function refreshAllViews(){
+  const active = document.querySelector('.view.active');
+  if(active) renderViewContent(active.id.replace('view-',''));
+  if(document.getElementById('workOverlay').classList.contains('show') && window.__openWorkId){
+    fillWorkModal(window.__openWorkId);
+  }
+}
+
+/* ================= Latest works / Featured / Library / My works ================= */
+function renderLatestWorks(){
+  const el = document.getElementById('latestWorks');
+  const list = [...ALL_WORKS].sort((a,b)=> new Date(b.createdAt)-new Date(a.createdAt)).slice(0,5);
+  if(list.length===0){
+    el.innerHTML = `<div class="empty-room" style="grid-column:1/-1;"><div class="em">🎨</div>Chưa có tác phẩm nào được đăng. Hãy là người mở màn phòng tranh!</div>`;
+    return;
+  }
+  el.innerHTML = list.map(workCardHTML).join('');
+  wireWorkCards(el);
+}
+function renderFeatured(){
+  const el = document.getElementById('featuredGrid');
+  const list = [...ALL_WORKS].sort((a,b)=> b.likes-a.likes).slice(0,12);
+  if(list.length===0){ el.innerHTML = `<div class="empty-room" style="grid-column:1/-1;"><div class="em">🏆</div>Chưa có tác phẩm nào để xếp hạng.</div>`; return; }
+  el.innerHTML = list.map(workCardHTML).join('');
+  wireWorkCards(el);
+}
+function renderMyWorks(){
+  const el = document.getElementById('myWorksGrid');
+  const list = ALL_WORKS.filter(w=>w.mine).sort((a,b)=> new Date(b.createdAt)-new Date(a.createdAt));
+  if(list.length===0){ el.innerHTML = `<div class="empty-room" style="grid-column:1/-1;"><div class="em">👤</div>Em chưa đăng tác phẩm nào trên trình duyệt này.</div>`; return; }
+  el.innerHTML = list.map(workCardHTML).join('');
+  wireWorkCards(el);
+}
+function renderLibrary(query){
+  const sel = document.getElementById('libRoomFilter');
+  if(!sel.dataset.filled){ sel.innerHTML += ROOMS.map(r=>`<option value="${r.id}">${r.month} – ${esc(r.title)}</option>`).join(''); sel.dataset.filled='1'; sel.onchange = ()=> renderLibrary(document.getElementById('searchInput').value); }
+  const roomFilter = sel.value;
+  let list = [...ALL_WORKS];
+  if(roomFilter) list = list.filter(w=>w.room===roomFilter);
+  if(query){
+    const q = query.toLowerCase();
+    list = list.filter(w => (w.title+w.author+w.className).toLowerCase().includes(q));
+  }
+  list.sort((a,b)=> new Date(b.createdAt)-new Date(a.createdAt));
+  const el = document.getElementById('libraryGrid');
+  const title = document.querySelector('#view-library .section-title');
+  title.innerHTML = query ? `<span class="fl">🔍</span> Kết quả tìm kiếm cho "${esc(query)}"` : `<span class="fl">📚</span> Thư viện tác phẩm`;
+  if(list.length===0){ el.innerHTML = `<div class="empty-room" style="grid-column:1/-1;"><div class="em">🔍</div>Không tìm thấy tác phẩm phù hợp.</div>`; return; }
+  el.innerHTML = list.map(workCardHTML).join('');
+  wireWorkCards(el);
+}
+function renderLeaderboard(){
+  const map = {};
+  ALL_WORKS.forEach(w=>{
+    const key = w.author+'|'+w.className;
+    if(!map[key]) map[key] = {author:w.author, className:w.className, likes:0, works:0};
+    map[key].likes += w.likes; map[key].works += 1;
+  });
+  const list = Object.values(map).sort((a,b)=> b.likes-a.likes).slice(0,10);
+  const el = document.getElementById('lbList');
+  if(list.length===0){ el.innerHTML = `<div class="empty-room"><div class="em">📊</div>Chưa có dữ liệu xếp hạng. Hãy đăng tác phẩm đầu tiên!</div>`; return; }
+  el.innerHTML = list.map((x,i)=>`<div class="lb-item">
+    <div class="lb-rank">${i+1}</div>
+    <div><div class="lb-name">${esc(x.author)}</div><div class="lb-sub">${esc(x.className)} · ${x.works} tác phẩm</div></div>
+    <div class="lb-score">❤️ ${x.likes}</div>
+  </div>`).join('');
+}
+function renderIdeas(){
+  const el = document.getElementById('ideaGrid');
+  el.innerHTML = ROOMS.map(r=>`<div class="idea-card">
+    <h4>${r.icon} ${r.month} – ${esc(r.title)}</h4>
+    <ul>${(IDEA_BANK[r.id]||[]).map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+  </div>`).join('');
+}
+
+/* ================= Work detail modal ================= */
+function openWorkModal(id, focusComment){
+  window.__openWorkId = id;
+  fillWorkModal(id);
+  document.getElementById('workOverlay').classList.add('show');
+  if(focusComment) setTimeout(()=> document.getElementById('commentInput').focus(), 200);
+}
+function fillWorkModal(id){
+  const w = ALL_WORKS.find(x=>x.id===id); if(!w) return;
+  const room = roomOf(w.room);
+  document.getElementById('workModalImg').src = w.image;
+  document.getElementById('workModalTitle').textContent = w.title;
+  document.getElementById('workModalAuthor').textContent = `${w.author} · ${w.className} · ${w.type}`;
+  document.getElementById('workModalRoom').textContent = room ? (room.month+' – '+room.title) : '';
+  document.getElementById('workModalCaption').textContent = w.caption || '(Không có mô tả)';
+  const liked = isLiked(id);
+  const likeBtn = document.getElementById('workLikeBtn');
+  likeBtn.textContent = (liked?'❤️':'🤍') + ' ' + (liked?'Đã thích':'Thích') + ` (${w.likes})`;
+  document.getElementById('workDeleteBtn').style.display = w.mine ? 'inline-flex' : 'none';
+  const cl = document.getElementById('commentList');
+  cl.innerHTML = w.comments.length===0 ? '<div style="font-size:.8rem;color:#AEB4C7;">Chưa có bình luận nào.</div>' :
+    w.comments.map(c=>`<div class="comment-item"><b>${esc(c.name)}</b><span class="ct">${new Date(c.time).toLocaleDateString('vi-VN')}</span><br>${esc(c.text)}</div>`).join('');
+}
+document.getElementById('btnWorkClose').addEventListener('click', ()=> document.getElementById('workOverlay').classList.remove('show'));
+document.getElementById('workOverlay').addEventListener('click', (e)=>{ if(e.target.id==='workOverlay') e.target.classList.remove('show'); });
+document.getElementById('workLikeBtn').addEventListener('click', (e)=>{ doToggleLike(window.__openWorkId, e); });
+document.getElementById('workDeleteBtn').addEventListener('click', ()=>{
+  if(!confirm('Xoá tác phẩm này? Hành động không thể hoàn tác.')) return;
+  dbDelete(window.__openWorkId).then(()=>{
+    ALL_WORKS = ALL_WORKS.filter(w=>w.id!==window.__openWorkId);
+    document.getElementById('workOverlay').classList.remove('show');
+    refreshAllViews();
+    toast('🗑️ Đã xoá tác phẩm.');
+  });
+});
+document.getElementById('workPdfBtn').addEventListener('click', ()=> exportWorkPdf(window.__openWorkId));
+document.getElementById('commentSend').addEventListener('click', submitComment);
+document.getElementById('commentInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') submitComment(); });
+function submitComment(){
+  const input = document.getElementById('commentInput');
+  const text = input.value.trim(); if(!text) return;
+  const w = ALL_WORKS.find(x=>x.id===window.__openWorkId); if(!w) return;
+  const profile = getProfile();
+  w.comments.push({ name: profile.name || 'Bạn đọc ẩn danh', text, time: new Date().toISOString() });
+  input.value = '';
+  dbPut(w).then(()=>{ fillWorkModal(w.id); refreshAllViews(); });
+}
+
+/* ================= Upload flow ================= */
+function fillRoomSelect(sel, withPlaceholder){
+  sel.innerHTML = (withPlaceholder?'<option value="">-- Chọn phòng tranh --</option>':'') +
+    ROOMS.map(r=>`<option value="${r.id}">${r.month} – ${esc(r.title)}</option>`).join('');
+}
+fillRoomSelect(document.getElementById('upRoom'));
+function prefillUploadForm(roomId){
+  if(roomId) document.getElementById('upRoom').value = roomId;
+  const profile = getProfile();
+  if(profile.name) document.getElementById('upAuthor').value = profile.name;
+  if(profile.className) document.getElementById('upClass').value = profile.className;
+}
+let pendingImageData = null;
+document.getElementById('dropzone').addEventListener('click', (e)=>{ if(e.target.id!=='upFile') document.getElementById('upFile').click(); });
+document.getElementById('dropzone').addEventListener('dragover', (e)=>{ e.preventDefault(); });
+document.getElementById('dropzone').addEventListener('drop', (e)=>{ e.preventDefault(); if(e.dataTransfer.files[0]) handleImageFile(e.dataTransfer.files[0]); });
+document.getElementById('upFile').addEventListener('change', (e)=>{ if(e.target.files[0]) handleImageFile(e.target.files[0]); });
+function handleImageFile(file){
+  if(!file.type.startsWith('image/')){ toast('⚠️ Vui lòng chọn một file ảnh.'); return; }
+  compressImage(file, 1280, 0.82).then(dataUrl=>{
+    pendingImageData = dataUrl;
+    const prev = document.getElementById('upPreview');
+    prev.src = dataUrl; prev.style.display = 'block';
+  });
+}
+function compressImage(file, maxDim, quality){
+  return new Promise((resolve)=>{
+    const img = new Image();
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      img.onload = ()=>{
+        let {width,height} = img;
+        if(width>maxDim || height>maxDim){
+          if(width>height){ height = Math.round(height*maxDim/width); width = maxDim; }
+          else{ width = Math.round(width*maxDim/height); height = maxDim; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+document.getElementById('btnSubmitWork').addEventListener('click', ()=>{
+  const room = document.getElementById('upRoom').value;
+  const title = document.getElementById('upTitle').value.trim();
+  const author = document.getElementById('upAuthor').value.trim();
+  const className = document.getElementById('upClass').value.trim();
+  const type = document.getElementById('upType').value;
+  const caption = document.getElementById('upCaption').value.trim();
+  if(!title || !author || !className){ toast('⚠️ Vui lòng điền đủ tên tác phẩm, tác giả và lớp.'); return; }
+  if(!pendingImageData){ toast('⚠️ Vui lòng chọn ảnh cho tác phẩm.'); return; }
+  const work = { id:uid(), room, title, author, className, type, caption, image:pendingImageData, likes:0, comments:[], mine:true, createdAt:new Date().toISOString() };
+  dbAdd(work).then(()=>{
+    ALL_WORKS.push(work);
+    localStorage.setItem('ptc_profile', JSON.stringify({name:author, className}));
+    toast('🎉 Đăng tác phẩm thành công!');
+    launchConfetti(60);
+    document.getElementById('upTitle').value=''; document.getElementById('upCaption').value='';
+    document.getElementById('upPreview').style.display='none'; pendingImageData=null;
+    document.getElementById('upFile').value='';
+    openRoom(room);
+  });
+});
+
+/* ================= PDF export ================= */
+function exportWorkPdf(id){
+  const w = ALL_WORKS.find(x=>x.id===id); if(!w) return;
+  const room = roomOf(w.room);
+  document.getElementById('print-area').innerHTML = `
+    <div style="font-family:'Mulish',Arial,sans-serif;max-width:680px;margin:0 auto;text-align:center;">
+      <div style="font-size:20px;font-weight:800;color:#233156;">🎨 Phòng Tranh CLB Văn Hay Chữ Tốt</div>
+      <div style="font-size:12px;color:#697088;margin:4px 0 18px;">THPT Huỳnh Văn Nghệ · ${room?room.month+' – '+esc(room.title):''}</div>
+      <img src="${w.image}" style="max-width:100%;max-height:420px;border-radius:12px;margin-bottom:16px;">
+      <div style="font-size:16px;font-weight:800;color:#233156;">${esc(w.title)}</div>
+      <div style="font-size:12px;color:#697088;margin:4px 0 14px;">${esc(w.author)} – ${esc(w.className)} · ${esc(w.type)}</div>
+      <div style="font-size:13px;color:#333;line-height:1.7;text-align:left;white-space:pre-wrap;">${esc(w.caption)}</div>
+      <div style="margin-top:24px;font-size:10.5px;color:#AEB4C7;">❤️ ${w.likes} lượt thích · 💬 ${w.comments.length} bình luận</div>
+    </div>`;
+  toast('🖨️ Đang mở hộp thoại in — chọn "Lưu dưới dạng PDF" nhé!');
+  setTimeout(()=> window.print(), 350);
+}
+document.getElementById('sideExportPdf').addEventListener('click', ()=>{
+  fillRoomSelect(document.getElementById('pdfRoomSelect'), true);
+  document.getElementById('pdfWorkSelect').innerHTML = '<option value="">-- Chọn phòng tranh trước --</option>';
+  document.getElementById('pdfPickerOverlay').classList.add('show');
+});
+document.getElementById('pdfRoomSelect').addEventListener('change', (e)=>{
+  const list = ALL_WORKS.filter(w=>w.room===e.target.value);
+  const sel = document.getElementById('pdfWorkSelect');
+  sel.innerHTML = list.length===0 ? '<option value="">(Không có tác phẩm)</option>' : list.map(w=>`<option value="${w.id}">${esc(w.title)} – ${esc(w.author)}</option>`).join('');
+});
+document.getElementById('btnPdfPickerClose').addEventListener('click', ()=> document.getElementById('pdfPickerOverlay').classList.remove('show'));
+document.getElementById('pdfPickerOverlay').addEventListener('click', (e)=>{ if(e.target.id==='pdfPickerOverlay') e.target.classList.remove('show'); });
+document.getElementById('btnDoExportPdf').addEventListener('click', ()=>{
+  const id = document.getElementById('pdfWorkSelect').value;
+  if(!id){ toast('⚠️ Vui lòng chọn một tác phẩm.'); return; }
+  document.getElementById('pdfPickerOverlay').classList.remove('show');
+  exportWorkPdf(id);
+});
+
+/* ================= Gemini AI Advisor ================= */
+function buildThinkingConfig(model){
+  if(model.startsWith('gemini-2.5')) return { thinkingBudget: 0 };
+  return { thinkingLevel: 'low' };
+}
+const ADVISOR_SYSTEM_PROMPT = `Bạn là "Cố Vấn AI Ngữ Văn" của CLB Văn Hay Chữ Tốt, trường THPT Huỳnh Văn Nghệ. Bạn đồng hành cùng học sinh trên hành trình đọc – viết – sáng tạo.
+Bạn có thể: gợi ý ý tưởng sáng tác (thơ, văn, tranh vẽ, thư pháp) theo chủ đề tháng của phòng tranh; nhận xét, góp ý mang tính xây dựng cho bài viết/bài thơ/tranh minh hoạ học sinh chia sẻ; gợi ý cách trưng bày sản phẩm đẹp mắt; giải đáp thắc mắc về tác phẩm, tác giả, văn học một cách dễ hiểu, gần gũi với học sinh THPT.
+Giọng điệu: thân thiện, khích lệ, gọi học sinh là "em" hoặc "bạn", trả lời ngắn gọn súc tích (dưới 150 chữ trừ khi được yêu cầu dài hơn), có thể dùng gạch đầu dòng khi liệt kê ý tưởng.
+Không chẩn đoán tâm lý, không dùng thuật ngữ y khoa, không nói mình là AI/mô hình ngôn ngữ khi không cần thiết.`;
+
+function getKey(){ return localStorage.getItem('ptc_api_key') || ''; }
+function getModel(){ return localStorage.getItem('ptc_model') || 'gemini-3.8-flash'; }
+function updateStatus(state, text){
+  const dot = document.getElementById('statusDot');
+  dot.classList.remove('on','err');
+  if(state==='on') dot.classList.add('on');
+  if(state==='err') dot.classList.add('err');
+  document.getElementById('statusText').textContent = text;
+}
+document.getElementById('toggleKeyVisible').addEventListener('click', ()=>{
+  const inp = document.getElementById('apiKeyInput');
+  inp.type = inp.type==='password' ? 'text' : 'password';
+});
+document.getElementById('helpToggle').addEventListener('click', ()=>{
+  const box = document.getElementById('helpBox');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+});
+document.getElementById('btnSaveKey').addEventListener('click', ()=>{
+  const key = document.getElementById('apiKeyInput').value.trim();
+  const model = document.getElementById('modelSelect').value;
+  if(!key){ toast('⚠️ Vui lòng nhập API Key trước khi lưu.'); return; }
+  localStorage.setItem('ptc_api_key', key);
+  localStorage.setItem('ptc_model', model);
+  updateStatus('on', 'Đã lưu API Key ✓');
+  toast('✅ Đã lưu Key thành công!');
+});
+document.getElementById('modelSelect').addEventListener('change', (e)=>{
+  localStorage.setItem('ptc_model', e.target.value);
+});
+document.getElementById('btnMoreModels').addEventListener('click', ()=> document.getElementById('modelsInfoOverlay').classList.add('show'));
+document.getElementById('btnModelsInfoClose').addEventListener('click', ()=> document.getElementById('modelsInfoOverlay').classList.remove('show'));
+document.getElementById('modelsInfoOverlay').addEventListener('click', (e)=>{ if(e.target.id==='modelsInfoOverlay') e.target.classList.remove('show'); });
+
+document.getElementById('btnTestConn').addEventListener('click', async ()=>{
+  const key = getKey(); const model = getModel();
+  if(!key){ toast('⚠️ Vui lòng nhập và lưu API Key trước.'); return; }
+  updateStatus(null, 'Đang kiểm tra...');
+  try{
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ contents:[{role:'user',parts:[{text:'Trả lời đúng một từ: OK'}]}], generationConfig:{ maxOutputTokens:20, thinkingConfig: buildThinkingConfig(model) } })
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error((data&&data.error&&data.error.message) || 'lỗi');
+    updateStatus('on', 'Kết nối thành công ✓');
+    toast('✅ Kết nối Gemini thành công!');
+  }catch(err){
+    updateStatus('err', 'Kết nối thất bại — kiểm tra lại Key');
+    toast('❌ Không kết nối được. Kiểm tra lại API Key.');
+  }
+});
+
+let advisorChatHistory = [];
+function pushChatMsg(role, html){
+  advisorChatHistory.push({role, html});
+  const body = document.getElementById('chatBody');
+  const div = document.createElement('div');
+  div.className = 'msg ' + (role==='user'?'user':'bot');
+  div.innerHTML = html;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+  return div;
+}
+document.querySelectorAll('.atab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.advisor-tabpane').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+document.querySelectorAll('#quickChips button').forEach(b=>{
+  b.addEventListener('click', ()=>{ document.getElementById('chatInput').value = b.dataset.q; sendAdvisorChat(); });
+});
+document.getElementById('chatSend').addEventListener('click', sendAdvisorChat);
+document.getElementById('chatInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendAdvisorChat(); });
+async function sendAdvisorChat(){
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim(); if(!text) return;
+  const key = getKey(); const model = getModel();
+  if(!key){ toast('⚠️ Vui lòng kết nối API Key Gemini trước nhé!'); return; }
+  input.value = '';
+  pushChatMsg('user', esc(text));
+  const loadingEl = pushChatMsg('bot', '<span style="opacity:.6;">Đang soạn phản hồi...</span>');
+  document.getElementById('chatSend').disabled = true;
+  try{
+    const contents = advisorChatHistory.filter(m=>m.html.indexOf('Đang soạn')===-1).map(m=>({ role: m.role==='user'?'user':'model', parts:[{text: stripTags(m.html)}] }));
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        systemInstruction:{ parts:[{text:ADVISOR_SYSTEM_PROMPT}] },
+        contents,
+        generationConfig:{ temperature:0.9, maxOutputTokens:900, thinkingConfig: buildThinkingConfig(model) }
+      })
+    });
+    const data = await res.json();
+    loadingEl.remove(); advisorChatHistory.pop();
+    if(!res.ok) throw new Error((data&&data.error&&data.error.message)||'lỗi');
+    const reply = data?.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join('') || 'Em thử hỏi lại giúp mình nhé, mình chưa nghĩ ra câu trả lời.';
+    pushChatMsg('bot', esc(reply.trim()).replace(/\n/g,'<br>'));
+  }catch(err){
+    loadingEl.remove(); advisorChatHistory.pop();
+    const m = (err.message||'').toLowerCase();
+    let friendly = 'Có lỗi kết nối tới Gemini, em thử lại nhé.';
+    if(m.includes('api key')||m.includes('permission')||m.includes('invalid')) friendly = '🔑 API Key chưa đúng, em kiểm tra lại trong khung Cố vấn AI nhé.';
+    else if(m.includes('quota')) friendly = '⏳ Hết hạn mức miễn phí tạm thời, em thử lại sau ít phút nhé.';
+    pushChatMsg('bot', friendly);
+  }finally{
+    document.getElementById('chatSend').disabled = false;
+  }
+}
+function stripTags(html){ const d=document.createElement('div'); d.innerHTML=html; return d.textContent || d.innerText || ''; }
+
+fillRoomSelect(document.getElementById('themeRoomSelect'));
+document.getElementById('btnGenIdeas').addEventListener('click', async ()=>{
+  const key = getKey(); const model = getModel();
+  const roomId = document.getElementById('themeRoomSelect').value;
+  const room = roomOf(roomId);
+  const resultEl = document.getElementById('themeIdeaResult');
+  if(!key){ toast('⚠️ Vui lòng kết nối API Key Gemini trước nhé!'); return; }
+  resultEl.textContent = 'Đang nghĩ ý tưởng cho em... ✨';
+  try{
+    const prompt = `Chủ đề tháng của phòng tranh CLB Văn học là: "${room.title}" (${room.month}). Hãy gợi ý 5 ý tưởng sáng tác ngắn gọn (thơ, văn, tranh vẽ, ảnh chụp hoặc thư pháp) phù hợp với chủ đề này cho học sinh THPT, mỗi ý tưởng 1 dòng, có gạch đầu dòng.`;
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        systemInstruction:{ parts:[{text:ADVISOR_SYSTEM_PROMPT}] },
+        contents:[{role:'user',parts:[{text:prompt}]}],
+        generationConfig:{ temperature:0.95, maxOutputTokens:700, thinkingConfig: buildThinkingConfig(model) }
+      })
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error((data&&data.error&&data.error.message)||'lỗi');
+    const reply = data?.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join('') || 'Chưa nghĩ ra ý tưởng, em thử lại nhé.';
+    resultEl.textContent = reply.trim();
+  }catch(err){
+    resultEl.textContent = '⚠️ Không lấy được gợi ý. Kiểm tra lại API Key hoặc thử lại sau nhé.';
+  }
+});
+
+/* ================= Navigation wiring ================= */
+document.querySelectorAll('.topnav button[data-view], .side-item[data-view]').forEach(b=>{
+  b.addEventListener('click', ()=> setView(b.dataset.view));
+});
+document.getElementById('searchInput').addEventListener('keydown', (e)=>{
+  if(e.key==='Enter'){ setView('library', {query:e.target.value.trim()}); }
+});
+
+/* ================= Reminders ================= */
+function checkReminder(){
+  const rem = JSON.parse(localStorage.getItem('ptc_reminder')||'{"enabled":false,"time":"20:00"}');
+  if(!rem.enabled) return;
+  if(!('Notification' in window) || Notification.permission!=='granted') return;
+  const now = new Date();
+  const cur = String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  const thisMonthKey = now.getFullYear()+'-'+now.getMonth();
+  const postedThisMonth = ALL_WORKS.some(w=> w.mine && new Date(w.createdAt).getFullYear()+'-'+new Date(w.createdAt).getMonth() === thisMonthKey);
+  const lastNotified = localStorage.getItem('ptc_last_notified');
+  if(cur===rem.time && !postedThisMonth && lastNotified !== thisMonthKey+'_'+now.getDate()){
+    new Notification('🎨 Phòng Tranh CLB Văn Hay Chữ Tốt', { body:'Tháng này em chưa đăng tác phẩm nào — thử sáng tác một điều nhỏ hôm nay nhé! 🌸' });
+    localStorage.setItem('ptc_last_notified', thisMonthKey+'_'+now.getDate());
+  }
+}
+function bindReminderUI(prefix){
+  const toggle = document.getElementById(prefix==='' ? 'reminderToggle' : 'reminderToggleQuick');
+  const time = document.getElementById(prefix==='' ? 'reminderTime' : 'reminderTimeQuick');
+  const rem = JSON.parse(localStorage.getItem('ptc_reminder')||'{"enabled":false,"time":"20:00"}');
+  toggle.checked = rem.enabled; time.value = rem.time;
+}
+document.getElementById('btnReminderOpen').addEventListener('click', ()=>{ bindReminderUI('quick'); document.getElementById('reminderOverlay').classList.add('show'); });
+document.getElementById('btnReminderClose').addEventListener('click', ()=> document.getElementById('reminderOverlay').classList.remove('show'));
+document.getElementById('reminderOverlay').addEventListener('click', (e)=>{ if(e.target.id==='reminderOverlay') e.target.classList.remove('show'); });
+function saveReminder(enabled, time){
+  if(enabled && 'Notification' in window && Notification.permission!=='granted') Notification.requestPermission();
+  localStorage.setItem('ptc_reminder', JSON.stringify({enabled, time}));
+  toast('✅ Đã lưu cài đặt nhắc nhở!');
+}
+document.getElementById('btnSaveReminder').addEventListener('click', ()=> saveReminder(document.getElementById('reminderToggle').checked, document.getElementById('reminderTime').value));
+document.getElementById('btnSaveReminderQuick').addEventListener('click', ()=>{
+  saveReminder(document.getElementById('reminderToggleQuick').checked, document.getElementById('reminderTimeQuick').value);
+  document.getElementById('reminderOverlay').classList.remove('show');
+});
+setInterval(checkReminder, 30000);
+
+/* ================= Settings: profile, dark mode, backup ================= */
+document.getElementById('btnSaveProfile').addEventListener('click', ()=>{
+  const name = document.getElementById('setName').value.trim();
+  const className = document.getElementById('setClass').value.trim();
+  localStorage.setItem('ptc_profile', JSON.stringify({name, className}));
+  toast('✅ Đã lưu thông tin!');
+});
+function applyDarkPref(){
+  const on = localStorage.getItem('ptc_dark')==='1';
+  document.body.classList.toggle('dark', on);
+  document.getElementById('darkSwitch').checked = on;
+}
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  localStorage.setItem('ptc_dark', document.body.classList.contains('dark') ? '1':'0');
+  document.getElementById('darkSwitch').checked = document.body.classList.contains('dark');
+}
+document.getElementById('btnDarkToggle').addEventListener('click', toggleDark);
+document.getElementById('darkSwitch').addEventListener('change', toggleDark);
+
+document.getElementById('btnBackupData').addEventListener('click', ()=>{
+  const payload = { exportedAt:new Date().toISOString(), works:ALL_WORKS, profile:getProfile(), liked:likedIds() };
+  const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download = `phong-tranh-sao-luu-${Date.now()}.json`;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  toast('⬇️ Đã tải file sao lưu!');
+});
+document.getElementById('btnRestoreData').addEventListener('click', ()=> document.getElementById('restoreInput').click());
+document.getElementById('restoreInput').addEventListener('change', (e)=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = async ()=>{
+    try{
+      const data = JSON.parse(reader.result);
+      if(!Array.isArray(data.works)) throw new Error('invalid');
+      if(!confirm('Khôi phục sẽ thêm dữ liệu từ file vào trình duyệt hiện tại. Tiếp tục?')) return;
+      for(const w of data.works){ await dbPut(w); }
+      if(data.profile) localStorage.setItem('ptc_profile', JSON.stringify(data.profile));
+      if(data.liked) localStorage.setItem('ptc_liked', JSON.stringify(data.liked));
+      ALL_WORKS = await dbGetAll();
+      refreshAllViews();
+      toast('✅ Đã khôi phục dữ liệu thành công!');
+    }catch(err){ toast('⚠️ File sao lưu không hợp lệ.'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+/* ================= Init ================= */
+document.addEventListener('DOMContentLoaded', async ()=>{
+  spawnPetals();
+  bindReveal();
+  applyDarkPref();
+  const profile = getProfile();
+  if(profile.name) document.getElementById('setName').value = profile.name;
+  if(profile.className) document.getElementById('setClass').value = profile.className;
+  const rem = JSON.parse(localStorage.getItem('ptc_reminder')||'{"enabled":false,"time":"20:00"}');
+  document.getElementById('reminderToggle').checked = rem.enabled;
+  document.getElementById('reminderTime').value = rem.time;
+  const savedKey = localStorage.getItem('ptc_api_key') || '';
+  const savedModel = localStorage.getItem('ptc_model') || 'gemini-3.8-flash';
+  document.getElementById('apiKeyInput').value = savedKey;
+  document.getElementById('modelSelect').value = savedModel;
+  if(savedKey) updateStatus('on', 'Đã kết nối API Key ✓');
+
+  try{ ALL_WORKS = await dbGetAll(); }catch(e){ ALL_WORKS = []; }
+  renderRoomGrid('roomGridHome');
+  renderLatestWorks();
+});
+
+/* ===== XÓA TÁC PHẨM / ẢNH ĐÃ ĐĂNG ===== */
+function deleteWorkSafe(index){
+  const w = (typeof data!=="undefined" && data[index]) ? data[index] : null;
+  if(!w){ alert("Không tìm thấy tác phẩm để xóa."); return; }
+  const name = w.title || "tác phẩm này";
+  if(!confirm('Bạn có chắc muốn xóa "'+name+'"?\n\nẢnh và thông tin tác phẩm sẽ bị xóa khỏi trình duyệt này.')) return;
+  data.splice(index,1);
+  try{
+    if(typeof save==="function") save();
+    else localStorage.setItem("vhct_works",JSON.stringify(data));
+  }catch(e){}
+  const detail=document.getElementById("detail");
+  if(detail) detail.classList.remove("open");
+  if(typeof renderWorks==="function") renderWorks();
+  if(typeof render==="function") try{render();}catch(e){}
+  alert("Đã xóa tác phẩm.");
+}
+
+</script>
+</body>
+</html>
